@@ -1,0 +1,171 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-color: rgb(51, 138, 63);
+    color: rgb(37, 37, 37);
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow-x: hidden;
+    padding: 10px 64px 64px 64px;
+}
+
+h1
+{
+    text-align: center;
+    font-size: 90px;
+    margin: 10px;
+   
+}
+
+.gallery 
+{
+    background-color: rgba(192, 192, 192, 0.3);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+    padding: 40px 64px 64px 64px;
+    border-radius: 20px;
+}
+
+.thumbnail 
+{
+    border: solid 3px rgba(207, 207, 207, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 48px 2px rgba(0,0,0,0.5);
+    cursor: pointer;
+    margin: 32px;
+    max-height: 200px;
+    max-width: 300px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.3s;
+}
+
+.thumbnail:hover
+{
+    transform: scale(1.1);
+}
+
+.thumbnail img
+{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.thumbnail img:focus,*.thumbnail img:focus-visible
+.thumbnail img:focus
+{
+    border: solid 5px rgb(39, 105, 48);
+}
+
+.popup
+{
+    animation: fadeIn 0.3s;
+    align-content: center;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+}
+
+.popup.hidden
+{
+    display: none;
+}
+
+.popup.fade-out 
+{
+    animation: fadeOut 0.3s both;
+}
+
+.popup_img
+{
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.popup_close
+{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgba(255,255,255,0.5);
+    font-size: 92px;
+    position: fixed;
+    right: 64px;
+    top: 55px;
+}
+
+.popup_arrow 
+{
+
+    background-color: rgba(0, 4, 66, 0.5);
+    color: rgba(255,255,255,0.5);
+    border: none;
+    border-radius: 35%;
+    font-size: 65px;
+    height: 60px;
+    line-height: 60px;
+    position: absolute;
+    top: 68%;
+    width: 60px;
+    cursor: pointer;
+    
+}
+
+.popup_arrow, .popup_close
+{
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.popup_arrow:hover, .popup_close:hover
+{
+    opacity: 4;
+}
+
+
+.popup_arrow--left 
+{
+    left: 5%;
+}
+
+.popup_arrow--right 
+{
+    right: 5%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
